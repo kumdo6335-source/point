@@ -1,0 +1,13 @@
+node_modules
+dist
+dist-ssr
+*.local
+.env
+.env.local
+
+# Firebase 로컬 설정 (실제 키가 들어간 파일은 커밋하지 않음)
+src/firebase.config.local.js
+
+.DS_Store
+.vscode/*
+!.vscode/extensions.json

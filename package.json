@@ -1,0 +1,22 @@
+{
+  "name": "point-auction",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "포인트 경매 (Point Auction) — 실시간 교실 경매 게임 웹앱",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "firebase": "^10.12.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "vite": "^5.3.3"
+  }
+}

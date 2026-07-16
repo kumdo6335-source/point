@@ -1,0 +1,21 @@
+rules_version = '2';
+
+// 포인트 경매 — 방코드 기반 접근 (인증 없음 전제, PRD 2/5.3)
+// 방코드를 아는 사람만 읽고 쓸 수 있습니다. 방코드는 6자리 랜덤이며
+// 게임 종료 시 즉시 삭제 + TTL(expireAt) 자동 정리로 보호됩니다.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /rooms/{roomCode} {
+      allow read, write: if true;
+
+      match /{subCollection}/{docId} {
+        allow read, write: if true;
+      }
+    }
+
+    // 그 외 경로는 모두 차단
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
