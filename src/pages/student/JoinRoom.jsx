@@ -40,10 +40,11 @@ export default function JoinRoom() {
           className="code-input"
           value={code}
           onChange={(e) => setCode(normalizeRoomCode(e.target.value))}
-          placeholder="예: ABCXYZ"
-          maxLength={8}
+          placeholder="예: 1234"
+          maxLength={4}
+          inputMode="numeric"
+          autoComplete="one-time-code"
           autoFocus
-          autoCapitalize="characters"
           onKeyDown={(e) => e.key === 'Enter' && checkCode()}
         />
       </div>

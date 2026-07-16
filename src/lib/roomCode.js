@@ -1,16 +1,14 @@
-// 방코드 생성 — 혼동되는 문자(0/O, 1/I 등) 제외한 6자리
-const ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
-
-export function generateRoomCode(length = 6) {
+// 방코드 생성 — 입력하기 쉬운 숫자 4자리 (0000~9999)
+export function generateRoomCode(length = 4) {
   let code = ''
   const arr = new Uint32Array(length)
   crypto.getRandomValues(arr)
   for (let i = 0; i < length; i++) {
-    code += ALPHABET[arr[i] % ALPHABET.length]
+    code += String(arr[i] % 10)
   }
   return code
 }
 
 export function normalizeRoomCode(input) {
-  return (input || '').toUpperCase().replace(/[^A-Z0-9]/g, '').trim()
+  return (input || '').replace(/\D/g, '')
 }
